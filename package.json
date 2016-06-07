@@ -1,0 +1,39 @@
+{
+  "name": "ng2-starter",
+  "version": "1.0.0",
+  "description": "Angular 2 && TypeScript via browserify",
+  "main": "index.js",
+  "dependencies": {
+    "@angular/common": "2.0.0-rc.1",
+    "@angular/compiler": "2.0.0-rc.1",
+    "@angular/core": "2.0.0-rc.1",
+    "@angular/http": "2.0.0-rc.1",
+    "@angular/platform-browser": "2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "@angular/router": "2.0.0-rc.1",
+    "@angular/router-deprecated": "2.0.0-rc.1",
+    "core-js": "2.2.2",
+    "rxjs": "5.0.0-beta.8",
+    "ts-helpers": "1.1.1",
+    "zone.js": "0.6.12"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "concurrently": "^2.1.0",
+    "factor-bundle": "^2.5.0",
+    "lite-server": "^2.2.0",
+    "tsify": "^0.16.0",
+    "tslint": "3.7.0-dev.2",
+    "typings": "^1.0.4",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "build": "watchify app/main.ts app/vendor.ts -p tsify -p [ factor-bundle -o public/main.js -o public/vendor.js ] -o public/common.js",
+    "go": "concurrently \"npm run build\" \"npm run serve\"",
+    "postinstall": "typings install",
+    "serve": "lite-server"
+  },
+  "keywords": ["angular2", "TypeScript", "browserify"],
+  "author": "Alexandru Vladutu",
+  "license": "MIT"
+}
